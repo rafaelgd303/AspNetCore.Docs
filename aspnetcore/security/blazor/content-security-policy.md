@@ -33,7 +33,7 @@ Minimally, specify the following directives and sources for Blazor apps. Add add
 * [base-uri](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/base-uri) &ndash; Restricts the URLs for a document's `<base>` tag.
   * Specify `self` to indicate that the app's origin, including the scheme and port number, is a valid source.
   * Supported by all browsers except IE.
-* [block-all-mixed-content](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content) &ndash; Prevents loading mixed HTTP and HTTPS content. Supported by all browsers except Edge/IE.
+* [block-all-mixed-content](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content) &ndash; Prevents loading mixed HTTP and HTTPS content. Supported by all browsers except IE.
 * [default-src](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/default-src) &ndash; Indicates a fallback for CSP directives.
   * Specify `self` to indicate that the app's origin, including the scheme and port number, is a valid source.
   * Supported by all browsers except IE.
@@ -72,7 +72,7 @@ Use a `<meta>` tag to apply the policy:
 * Place the directives in the `content` attribute value. Separate directives with a semicolon (`;`).
 * Always place the `meta` tag in the `<head>` content.
 
-To test a policy over a period of a few days or weeks without enforcing the policy directives, set `http-equiv` attribute (or header name) to `Content-Security-Policy-Report-Only`. Failure reports are sent as JSON documents to a specified URL. Testing helps confirm that third-party scripts aren't inadvertently blocked when building an initial policy. For more information, see [MDN web docs: Content-Security-Policy-Report-Only](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only).
+To test a policy over a period of a few days or weeks without enforcing the policy directives, set the `http-equiv` attribute (or header name) to `Content-Security-Policy-Report-Only`. Failure reports are sent as JSON documents to a specified URL. Testing helps confirm that third-party scripts aren't inadvertently blocked when building an initial policy. For more information, see [MDN web docs: Content-Security-Policy-Report-Only](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only).
 
 For reporting on violations while a policy is active, see the following articles:
 
@@ -144,7 +144,7 @@ To support the preceding directives, use a header named `Content-Security-Policy
 * Errors appear in the browser's developer tools console. Chrome and Firefox provide information about:
   * Elements that don't comply with the policy.
   * How to modify the policy to allow for a blocked item.
-* A policy is only completely effective on browsers that support all of the included directives. For example, Edge doesn't support [block-all-mixed-content](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content), so Edge loads mixed HTTP and HTTPS content when `block-all-mixed-content` is specified.
+* A policy is only completely effective when the client's browser supports all of the included directives. For a current browser support matrix, see [Can I use: Content-Security-Policy](https://caniuse.com/#search=Content-Security-Policy).
 
 ## Additional resources
 
